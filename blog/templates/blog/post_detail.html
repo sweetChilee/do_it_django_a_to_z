@@ -26,7 +26,7 @@
         <hr>
 
         {% if user.is_authenticated and user == post.author %}
-            <a class="btn btn-info btn-sm float-right" href="/blog/update_post/{{ post.pk }}/" role="button"><i class="fas fa-pen"></i>  Edit Post</a>
+            <a class="btn btn-danger btn-sm float-right" href="/blog/update_post/{{ post.pk }}/" role="button"><i class="fas fa-pen"></i>  Edit Post</a>
         {% endif %}
 
         <!-- Date/Time -->
@@ -58,7 +58,7 @@
 
 
         {% if post.file_upload %}
-            <a href="{{ post.file_upload.url }}" class="btn btn-outline-dark" role="button" download>
+            <a href="{{ post.file_upload.url }}" class="btn btn-outline-danger" role="button" download>
                 Download:
 
                 {% if post.get_file_ext == 'csv' %}
@@ -89,10 +89,10 @@
                         <div class="form-group">
                             {{ comment_form | crispy }}
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-danger">Submit</button>
                     </form>
                 {% else %}
-                    <a role="button" class="btn btn-outline-dark btn-block btn-sm" href="#" data-toggle="modal" data-target="#loginModal">Log in and leave a comment</a>
+                    <a role="button" class="btn btn-outline-danger btn-block btn-sm" href="#" data-toggle="modal" data-target="#loginModal">Log in and leave a comment</a>
                 {% endif %}
             </div>
         </div>
@@ -106,7 +106,7 @@
                         {% if user.is_authenticated and comment.author == user %}
                             <div class="float-right">
                                 <a role="button"
-                                   class="btn btn-sm btn-info"
+                                   class="btn btn-sm btn-danger"
                                    id="comment-{{ comment.pk }}-update-btn"
                                    href="/blog/update_comment/{{ comment.pk }}/">
                                     edit
@@ -134,7 +134,7 @@
                                             <del>{{ comment | linebreaks }}</del>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                            <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancel</button>
                                             <a role="button" class="btn btn-danger" href="/blog/delete_comment/{{ comment.pk }}/">Delete</a>
                                         </div>
                                     </div>
