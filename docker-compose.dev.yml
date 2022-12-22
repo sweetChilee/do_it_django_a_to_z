@@ -21,4 +21,4 @@ services:
       - POSTGRES_PASSWORD=do_it_django_db_password
       - POSTGRES_DB=do_it_django_dev
 volumes:
-  postgres_data::
+  postgres_data:
